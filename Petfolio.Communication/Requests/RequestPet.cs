@@ -2,10 +2,11 @@
 
 namespace Petfolio.Communication.Requests;
 
-public class RequestRegisterPet
+public class RequestPet
 {
     public string Name { get; set; }
     public DateOnly BirthDay { get; set; }
 
     public PetType Type { get; set; }
+
 }
