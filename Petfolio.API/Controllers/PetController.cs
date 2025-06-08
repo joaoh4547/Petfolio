@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Petfolio.Application.UseCases.Pet.Register;
 using Petfolio.Communication.Requests;
 using Petfolio.Communication.Responses;
 
@@ -12,7 +13,8 @@ public class PetController : ControllerBase
     [ProducesResponseType(typeof(ResponseRegisterPet), StatusCodes.Status201Created)]
     public IActionResult Register(RequestRegisterPet request)
     {
-        return Created();
+        var response = new RegisterPetUseCase().Handle(request);
+        return Created(string.Empty, response);
     }
 
 }
