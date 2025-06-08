@@ -12,6 +12,7 @@ public class PetController : ControllerBase
 {
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisterPet), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ResponseError), StatusCodes.Status400BadRequest)]
     public IActionResult Register(RequestPet request)
     {
         var useCase = new RegisterPetUseCase();
@@ -23,6 +24,7 @@ public class PetController : ControllerBase
     [HttpPut]
     [Route("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ResponseError), StatusCodes.Status400BadRequest)]
     public IActionResult Update([FromRoute] int id, RequestPet request)
     {
         var useCase = new UpdatePetUseCase();
